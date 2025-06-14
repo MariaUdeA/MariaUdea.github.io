@@ -1,0 +1,26 @@
+[
+  {
+    "precio": "$120.000",
+    "descripcion": "Kit básico para iniciarse en la robótica educativa. Incluye sensores, motores y guía de inicio.",
+    "categoria": "Kit",
+    "imagen": "assets/product_images/kit_basico.webp"
+  },
+  {
+    "precio": "$35.000",
+    "descripcion": "Sesión de clase enfocada en programación con Arduino para principiantes.",
+    "categoria": "Sesión de clase",
+    "imagen": "assets/product_images/sesion_arduino.webp"
+  },
+  {
+    "precio": "$15.000",
+    "descripcion": "Software educativo para simular circuitos y aprender programación por bloques.",
+    "categoria": "Software",
+    "imagen": "assets/product_images/software_simulador.png"
+  },
+  {
+    "precio": "$300.000",
+    "descripcion": "Paquete completo con kits, software y sesiones de clase para una institución educativa.",
+    "categoria": "Paquete educativo",
+    "imagen": "assets/product_images/paquete_completo.webp"
+  }
+]

@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="LudoBotics - Robótica educativa para escuelas con enfoque STEAM y aprendizaje lúdico">
+    <meta name="author" content="LudoBotics Team">
+    <title>LudoBotics - Robótica Educativa STEAM</title>
+    <link rel="canonical" href="https://www.ludobotics.com">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="./assets/js/color-modes.js"></script>
+    <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+        .b-example-divider {
+            width: 100%;
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+        .btn-bd-primary {
+            --bd-violet-bg: #712cf9;
+            --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+            --bs-btn-font-weight: 600;
+            --bs-btn-color: var(--bs-white);
+            --bs-btn-bg: var(--bd-violet-bg);
+            --bs-btn-border-color: var(--bd-violet-bg);
+            --bs-btn-hover-color: var(--bs-white);
+            --bs-btn-hover-bg: #6528e0;
+            --bs-btn-hover-border-color: #6528e0;
+            --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+            --bs-btn-active-color: var(--bs-btn-hover-color);
+            --bs-btn-active-bg: #5a23c8;
+            --bs-btn-active-border-color: #5a23c8;
+        }
+        .bd-mode-toggle .btn-bd-primary {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+        }
+        [data-bs-theme="dark"] {
+            --bs-body-color: #d1d1d1; 
+            --bs-body-color-rgb: 209, 209, 209;
+            --bs-secondary-color: rgba(209, 209, 209, 0.85);
+            --bs-tertiary-color: rgba(209, 209, 209, 0.65);
+        }
+        [data-bs-theme="dark"] .card,
+        [data-bs-theme="dark"] .table,
+        [data-bs-theme="dark"] .text-body-secondary {
+            --bs-card-color: #d1d1d1;
+            --bs-table-color: #d1d1d1;
+            --bs-secondary-color: #d1d1d1;
+            color: #d1d1d1 !important;
+        }
+        [data-bs-theme="dark"] .lead,
+        [data-bs-theme="dark"] .text-body-secondary,
+        [data-bs-theme="dark"] .table {
+            opacity: 0.9; /* Texto más sólido */
+        }
+        .bd-mode-toggle .dropdown-menu .active .bi {
+            display: block !important;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+            color: white;
+            padding: 5rem 0;
+            margin-bottom: 3rem;
+            border-radius: 0.5rem;
+        }
+        .feature-icon {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 0.75rem;
+            background-color: #6e48aa;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .steam-badge {
+            background-color: #6e48aa;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        .testimonial-card {
+            border-left: 4px solid #6e48aa;
+        }
+        .btn-ludobotics {
+            background-color: #6e48aa;
+            color: white;
+        }
+        .btn-ludobotics:hover {
+            background-color: #5a23c8;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme toggle (same as reference) -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <symbol id="check2" viewBox="0 0 16 16">
+            <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
+        </symbol>
+        <symbol id="circle-half" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+        </symbol>
+        <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+            <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+            <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+        </symbol>
+        <symbol id="sun-fill" viewBox="0 0 16 16">
+            <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+        </symbol>
+    </svg>
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+        <button class="btn btn-bd-primary py-1 px-2 dropdown-toggle d-flex align-items-center" 
+                id="bd-theme" 
+                type="button" 
+                aria-expanded="false" 
+                data-bs-toggle="dropdown" 
+                aria-label="Toggle theme (auto)">
+            <svg class="bi my-0 theme-icon-active" width="14" height="14" aria-hidden="true">
+                <use href="#circle-half"></use>
+            </svg>
+            <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+                    <svg class="bi me-2 opacity-50" width="14" height="14" aria-hidden="true">
+                        <use href="#sun-fill"></use>
+                    </svg>
+                    Light
+                    <svg class="bi ms-auto d-none" width="14" height="14" aria-hidden="true">
+                        <use href="#check2"></use>
+                    </svg>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+                    <svg class="bi me-2 opacity-50" width="14" height="14" aria-hidden="true">
+                        <use href="#moon-stars-fill"></use>
+                    </svg>
+                    Dark
+                    <svg class="bi ms-auto d-none" width="14" height="14" aria-hidden="true">
+                        <use href="#check2"></use>
+                    </svg>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+                    <svg class="bi me-2 opacity-50" width="14" height="14" aria-hidden="true">
+                        <use href="#circle-half"></use>
+                    </svg>
+                    Auto
+                    <svg class="bi ms-auto d-none" width="14" height="14" aria-hidden="true">
+                        <use href="#check2"></use>
+                    </svg>
+                </button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Navigation -->
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <img src="/assets/logoLudobotics.svg" width="40" height="32" class="me-2" alt="Logo LudoBotics">
+                <span class="fs-4">LudoBotics</span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="#software" class="nav-link">Software</a></li>
+                <li class="nav-item"><a href="#kits" class="nav-link">Kits</a></li>
+                <li class="nav-item"><a href="#sesiones" class="nav-link">Sesiones</a></li>
+                <li class="nav-item"><a href="#paquetes" class="nav-link">Paquetes</a></li>
+                <li class="nav-item"><a href="#contacto" class="btn btn-ludobotics ms-2">Descarga Gratis</a></li>
+            </ul>
+        </header>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="container px-4 py-5 hero-section">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="/assets/product_images/landingImg.jfif" class="d-block mx-lg-auto img-fluid rounded-3" alt="Paquete completo de LudoBotics" width="700" height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <span class="steam-badge">ENFOQUE STEAM</span>
+                <h1 class="display-5 fw-bold text-white lh-1 mb-3">Robótica educativa para la escuela del siglo XXI</h1>
+                <p class="lead text-white">Integramos programación por bloques, kits de bajo costo y sesiones gamificadas para un aprendizaje práctico y divertido de robótica y programación.</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <a href="#paquetes" class="btn btn-light btn-lg px-4 me-md-2">Ver paquetes</a>
+                    <a href="#contacto" class="btn btn-outline-light btn-lg px-4">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features -->
+    <div class="container px-4 py-5" id="features">
+        <h2 class="pb-2 border-bottom text-center">¿Por qué elegir LudoBotics?</h2>
+
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+            <div class="feature col">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                </div>
+                <h3 class="fs-2">Software Freemium</h3>
+                <p>Programación por bloques orientada a Arduino con entorno de simulación. Versión gratuita para empezar y premium con todas las funciones.</p>
+                <a href="#software" class="icon-link">
+                    Más información
+                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                </a>
+            </div>
+            <div class="feature col">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A2.968 2.968 0 0 1 3 2.506V2.5zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43a.522.522 0 0 0 .023.07zM9 3h2.932a.56.56 0 0 0 .023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0V3zM1 5v8.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5V5H1zm11 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                    </svg>
+                </div>
+                <h3 class="fs-2">Kits de Bajo Costo</h3>
+                <p>Componentes accesibles y materiales caseros para proyectos versátiles sin comprometer la calidad del aprendizaje.</p>
+                <a href="#kits" class="icon-link">
+                    Ver kits
+                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                </a>
+            </div>
+            <div class="feature col">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 1-.068-.495c.55.082 1.629.186 2.717.186 1.088 0 2.167-.104 2.717-.186a.25.25 0 0 1-.068.495 24.78 24.78 0 0 1-1.87.183l-.92-.9a.25.25 0 0 0-.217-.068ZM8.5 1.866a1 1 0 1 0-1 0V3h-2A4 4 0 0 0 1 7v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7a4 4 0 0 0-4-4h-2V1.866ZM4 7a1 1 0 0 1 2 0v1a1 1 0 0 1-2 0V7Zm6 0a1 1 0 0 1 2 0v1a1 1 0 0 1-2 0V7Zm-5 5a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm5 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
+                    </svg>
+                </div>
+                <h3 class="fs-2">Sesiones Gamificadas</h3>
+                <p>Clases extracurriculares con retos, recompensas y dinámicas lúdicas que fomentan la motivación y el aprendizaje activo.</p>
+                <a href="#sesiones" class="icon-link">
+                    Conocer metodología
+                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Software Section -->
+    <div class="container px-4 py-5" id="software">
+        <div class="row align-items-center g-5 py-5">
+            <div class="col-lg-6">
+                <h2 class="display-5 fw-bold lh-1 mb-3">Software de programación por bloques LUDO</h2>
+                <p class="lead">Nuestra plataforma de programación visual facilita el aprendizaje de conceptos de robótica y programación sin necesidad de experiencia previa.</p>
+                
+                <div class="mt-4">
+                    <h4>Licencia Gratuita</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><svg class="bi text-success me-2" width="20" height="20"><use xlink:href="#check2"></use></svg> Bloques básicos de programación</li>
+                        <li class="mb-2"><svg class="bi text-success me-2" width="20" height="20"><use xlink:href="#check2"></use></svg> Ejemplos básicos (LEDs, interruptores)</li>
+                        <li class="mb-2"><svg class="bi text-success me-2" width="20" height="20"><use xlink:href="#check2"></use></svg> Versión de prueba premium por 7 días</li>
+                    </ul>
+                    
+                    <h4 class="mt-4">Licencia Premium</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><svg class="bi text-primary me-2" width="20" height="20"><use xlink:href="#check2"></use></svg> Todos los bloques avanzados</li>
+                        <li class="mb-2"><svg class="bi text-primary me-2" width="20" height="20"><use xlink:href="#check2"></use></svg> Entorno de simulación completo</li>
+                        <li class="mb-2"><svg class="bi text-primary me-2" width="20" height="20"><use xlink:href="#check2"></use></svg> Mayor capacidad de memoria</li>
+                        <li class="mb-2"><svg class="bi text-primary me-2" width="20" height="20"><use xlink:href="#check2"></use></svg> Acceso a todos los ejemplos y proyectos</li>
+                    </ul>
+                </div>
+                
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
+                    <a href="#" class="btn btn-ludobotics btn-lg px-4 me-md-2">Descargar Gratis</a>
+                    <a href="#" class="btn btn-outline-secondary btn-lg px-4">Ver demo</a>
+                </div>
+            </div>
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="/assets/product_images/software_simulador.png" class="d-block mx-lg-auto img-fluid rounded-3" alt="Software de simulación LudoBotics" width="700" height="500" loading="lazy">
+            </div>
+        </div>
+    </div>
+
+    <!-- Kits Section -->
+    <div class="bg-light">
+        <div class="container px-4 py-5" id="kits">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold lh-1 mb-3">Kits educativos de electrónica</h2>
+                    <p class="lead">Diseñados para trabajar con Arduino, priorizando componentes accesibles y materiales caseros que reducen costos sin sacrificar el aprendizaje.</p>
+                    
+                    <div class="mt-4">
+                        <h4>Características principales</h4>
+                        <ul>
+                            <li>Sensores digitales fáciles de programar</li>
+                            <li>Microservos y motorreductores versátiles</li>
+                            <li>Estructuras con materiales de bajo costo</li>
+                            <li>Adaptables a múltiples proyectos educativos</li>
+                            <li>Desde sistemas de iluminación hasta robots móviles</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
+                        <a href="#paquetes" class="btn btn-ludobotics btn-lg px-4 me-md-2">Ver kits en paquetes</a>
+                    </div>
+                </div>
+                <div class="col-10 col-sm-8 col-lg-6">
+                    <img src="/assets/product_images/kit_basico.webp" class="d-block mx-lg-auto img-fluid rounded-3" alt="Kit básico de electrónica" width="700" height="500" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sesiones Section -->
+    <div class="container px-4 py-5" id="sesiones">
+        <div class="row align-items-center g-5 py-5">
+            <div class="col-lg-6">
+                <h2 class="display-5 fw-bold lh-1 mb-3">Sesiones extracurriculares gamificadas</h2>
+                <p class="lead">Nuestras clases son dirigidas por instructores especializados que utilizan la gamificación para hacer el aprendizaje más atractivo y efectivo.</p>
+                
+                <div class="mt-4">
+                    <h4>Metodología LudoBotics</h4>
+                    <ul>
+                        <li>Enfoque lúdico para estudiantes de primaria y secundaria</li>
+                        <li>Retos, recompensas y dinámicas de juego</li>
+                        <li>Transversalidad con áreas STEAM</li>
+                        <li>Modalidad presencial en Medellín y virtual en otras ciudades</li>
+                        <li>Grupos reducidos para educación personalizada (máx. 20 estudiantes)</li>
+                    </ul>
+                </div>
+                
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
+                    <a href="#paquetes" class="btn btn-ludobotics btn-lg px-4 me-md-2">Ver sesiones incluidas</a>
+                </div>
+            </div>
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="/assets/product_images/sesion_arduino.webp" class="d-block mx-lg-auto img-fluid rounded-3" alt="Sesión de Arduino con estudiantes" width="700" height="500" loading="lazy">
+            </div>
+        </div>
+    </div>
+
+    <!-- Enfoque STEAM -->
+    <div class="bg-light">
+        <div class="container px-4 py-5">
+            <h2 class="display-5 fw-bold text-center mb-5">Enfoque STEAM integrado</h2>
+            
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 py-5">
+                <div class="col d-flex align-items-start">
+                    <div class="me-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#6e48aa" viewBox="0 0 16 16">
+                            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="fw-bold mb-0 fs-4">Ciencia</h3>
+                        <p>Vinculación de sensores con conceptos de medición, análisis y experimentación científica.</p>
+                    </div>
+                </div>
+                
+                <div class="col d-flex align-items-start">
+                    <div class="me-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#6e48aa" viewBox="0 0 16 16">
+                            <path d="M4.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM3 4.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm2 7a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-2.5.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+                            <path d="M2 2a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h1v2H2a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2h-1V7h1a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm13 2v1a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zm0 7v1a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zm-3-4v2H4V7h8z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="fw-bold mb-0 fs-4">Tecnología</h3>
+                        <p>Uso de herramientas tecnológicas para resolver problemas reales de forma interdisciplinaria.</p>
+                    </div>
+                </div>
+                
+                <div class="col d-flex align-items-start">
+                    <div class="me-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#6e48aa" viewBox="0 0 16 16">
+                            <path d="M4 0h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H4z"/>
+                            <path d="M6.5 4a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm-2 0a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.5-.5h-1zm4 0a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.5-.5h-1z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="fw-bold mb-0 fs-4">Ingeniería</h3>
+                        <p>Procesos de diseño, construcción y mejora de prototipos robóticos.</p>
+                    </div>
+                </div>
+                
+                <div class="col d-flex align-items-start">
+                    <div class="me-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#6e48aa" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16ZM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5ZM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683ZM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8Z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="fw-bold mb-0 fs-4">Artes</h3>
+                        <p>Creatividad y personalización de estructuras robóticas con materiales caseros.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paquetes Section -->
+    <div class="container py-3" id="paquetes">
+        <header>
+            <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+                <h1 class="display-4 fw-normal text-body-emphasis">Paquetes educativos</h1>
+                <p class="fs-5 text-body-secondary">Introduce ahora mismo a tus alumnos en el maravilloso mundo de la robótica con los precios especiales de los paquetes de servicios y productos que tenemos para tu institución educativa</p>
+            </div>
+        </header>
+
+        <main>
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">Básico</h4>
+                    </div>
+                    <div class="card-body">
+                    <h1 class="card-title pricing-card-title">$1.450.000</h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Para 10 estudiantes</li>
+                        <li>18 sesiones de clase</li>
+                        <li>10 Kits de electrónica</li>
+                        <li>1 mes de licencia de software LUDO</li>
+                    </ul>
+                    <a href="#contacto" class="w-100 btn btn-lg btn-outline-primary" onclick="setPackage('Básico')">Contáctanos</a>
+                    </div>
+                </div>
+                </div>
+
+                <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">Plata</h4>
+                    </div>
+                    <div class="card-body">
+                    <h1 class="card-title pricing-card-title">$5.000.000</h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Para 20 estudiantes</li>
+                        <li>80 sesiones de clase</li>
+                        <li>20 Kits de electrónica</li>
+                        <li>3 meses de licencia de software LUDO</li>
+                    </ul>
+                    <a href="#contacto" class="w-100 btn btn-lg btn-primary" onclick="setPackage('Plata')">Contáctanos</a>
+                    </div>
+                </div>
+                </div>
+
+                <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                    <div class="card-header py-3 text-bg-primary border-primary">
+                    <h4 class="my-0 fw-normal">Premium</h4>
+                    </div>
+                    <div class="card-body">
+                    <h1 class="card-title pricing-card-title">$14.000.000</h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Para 20 estudiantes</li>
+                        <li>320 sesiones de clase</li>
+                        <li>20 Kits de electrónica</li>
+                        <li>1 año de licencia de software LUDO</li>
+                    </ul>
+                    <a href="#contacto" class="w-100 btn btn-lg btn-primary" onclick="setPackage('Premium')">Contáctanos</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+                <symbol id="check" viewBox="0 0 16 16">
+                    <title>Check</title>
+                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
+                </symbol>
+            </svg>
+            <h2 class="display-6 text-center mb-4">Comparar paquetes</h2>
+            <div class="table-responsive">
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                            <th style="width: 34%;"></th>
+                            <th style="width: 22%;">Básico</th>
+                            <th style="width: 22%;">Plata</th>
+                            <th style="width: 22%;">Premium</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="text-start">Actualización automática de software</th>
+                            <td><svg class="bi" width="24" height="24" role="img" aria-label="Included"><use xlink:href="#check"></use></svg></td>
+                            <td><svg class="bi" width="24" height="24" role="img" aria-label="Included"><use xlink:href="#check"></use></svg></td>
+                            <td><svg class="bi" width="24" height="24" role="img" aria-label="Included"><use xlink:href="#check"></use></svg></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-start">Descuentos de Renovación de Paquete</th>
+                            <td></td>
+                            <td><svg class="bi" width="24" height="24" role="img" aria-label="Included"><use xlink:href="#check"></use></svg></td>
+                            <td><svg class="bi" width="24" height="24" role="img" aria-label="Included"><use xlink:href="#check"></use></svg></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-start">Soporte especializado</th>
+                            <td><svg class="bi" width="24" height="24" role="img" aria-label="Included"><use xlink:href="#check"></use></svg></td>
+                            <td><svg class="bi" width="24" height="24" role="img" aria-label="Included"><use xlink:href="#check"></use></svg></td>
+                            <td><svg class="bi" width="24" height="24" role="img" aria-label="Included"><use xlink:href="#check"></use></svg></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-start">Ampliación de paquete a más estudiantes</th>
+                            <td></td>
+                            <td><svg class="bi" width="24" height="24" role="img" aria-label="Included"><use xlink:href="#check"></use></svg></td>
+                            <td><svg class="bi" width="24" height="24" role="img" aria-label="Included"><use xlink:href="#check"></use></svg></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-start">Pensum de proyectos adaptativo</th>
+                            <td></td>
+                            <td></td>
+                            <td><svg class="bi" width="24" height="24" role="img" aria-label="Included"><use xlink:href="#check"></use></svg></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-start">Acceso temprano a últimas versiones de software</th>
+                            <td></td>
+                            <td></td>
+                            <td><svg class="bi" width="24" height="24" role="img" aria-label="Included"><use xlink:href="#check"></use></svg></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="bg-light">
+        <div class="container px-4 py-5">
+            <h2 class="display-5 fw-bold text-center mb-5">Lo que dicen nuestros clientes</h2>
+            
+            <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                <div class="col">
+                    <div class="card h-100 p-4 testimonial-card">
+                        <div class="card-body">
+                            <p class="card-text">"LudoBotics ha transformado nuestra clase de tecnología. Los estudiantes están más motivados que nunca y han desarrollado habilidades que van más allá de la programación."</p>
+                            <div class="d-flex align-items-center mt-4">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" class="rounded-circle me-3" width="50" height="50" alt="Testimonial">
+                                <div>
+                                    <h5 class="mb-0">María Gómez</h5>
+                                    <small class="text-muted">Docente, Colegio San José</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 p-4 testimonial-card">
+                        <div class="card-body">
+                            <p class="card-text">"Los kits de bajo costo nos permitieron implementar robótica en nuestra escuela rural sin superar el presupuesto. El software es intuitivo y los niños aprenden jugando."</p>
+                            <div class="d-flex align-items-center mt-4">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" class="rounded-circle me-3" width="50" height="50" alt="Testimonial">
+                                <div>
+                                    <h5 class="mb-0">Carlos Rodríguez</h5>
+                                    <small class="text-muted">Director, Escuela Rural La Esperanza</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 p-4 testimonial-card">
+                        <div class="card-body">
+                            <p class="card-text">"Como padre, valoro el enfoque STEAM de LudoBotics. Mi hija no solo aprende programación, sino que aplica conceptos de matemáticas y ciencia de manera práctica y divertida."</p>
+                            <div class="d-flex align-items-center mt-4">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" class="rounded-circle me-3" width="50" height="50" alt="Testimonial">
+                                <div>
+                                    <h5 class="mb-0">Laura Martínez</h5>
+                                    <small class="text-muted">Madre de estudiante</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contacto Section -->
+    <div class="container px-4 py-5" id="contacto">
+        <div class="row align-items-center g-5 py-5">
+            <div class="col-lg-6">
+                <h2 class="display-5 fw-bold lh-1 mb-3">¿Listo para empezar?</h2>
+                <p class="lead">Contáctanos para más información sobre nuestros productos y servicios, o descarga ahora mismo nuestra plataforma de programación por bloques.</p>
+                
+                <div class="mt-4">
+                    <h4>Información de contacto</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><strong>Email:</strong> info@ludobotics.com</li>
+                        <li class="mb-2"><strong>Teléfono:</strong> +57 123 456 7890</li>
+                        <li class="mb-2"><strong>Ubicación:</strong> Medellín, Colombia</li>
+                    </ul>
+                </div>
+                
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
+                    <a href="#" class="btn btn-ludobotics btn-lg px-4 me-md-2">Descargar Software</a>
+                    <a href="#" class="btn btn-outline-secondary btn-lg px-4">Solicitar Demo</a>
+                </div>
+            </div>
+            <div class="col-10 col-sm-8 col-lg-6">
+                <div class="card p-4">
+                    <h3 class="mb-4">Envíanos un mensaje</h3>
+                    <form>
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="institucion" class="form-label">Institución (opcional)</label>
+                            <input type="text" class="form-control" id="institucion">
+                        </div>
+                        <div class="mb-3">
+                            <label for="mensaje" class="form-label">Mensaje</label>
+                            <textarea class="form-control" id="mensaje" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-ludobotics">Enviar mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="py-5">
+            <div class="row">
+                <div class="col-6 col-md-2 mb-3">
+                    <h5>Productos</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#software" class="nav-link p-0 text-body-secondary">Software LUDO</a></li>
+                        <li class="nav-item mb-2"><a href="#kits" class="nav-link p-0 text-body-secondary">Kits educativos</a></li>
+                        <li class="nav-item mb-2"><a href="#sesiones" class="nav-link p-0 text-body-secondary">Sesiones de clase</a></li>
+                        <li class="nav-item mb-2"><a href="#paquetes" class="nav-link p-0 text-body-secondary">Paquetes</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-2 mb-3">
+                    <h5>Empresa</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="empresa.html" class="nav-link p-0 text-body-secondary">Nosotros</a></li>
+                        <li class="nav-item mb-2"><a href="empresa.html#equipo" class="nav-link p-0 text-body-secondary">Equipo</a></li>
+                        <li class="nav-item mb-2"><a href="empresa.html#contacto" class="nav-link p-0 text-body-secondary">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-5 offset-md-1 mb-3">
+                    <form id="newsletterForm">
+                        <h5>Suscríbete a nuestro boletín</h5>
+                        <p>Recibe actualizaciones sobre nuevos productos y ofertas especiales.</p>
+                        <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                            <label for="newsletter1" class="visually-hidden">Email</label>
+                            <input id="newsletter1" type="email" class="form-control" placeholder="Email" required>
+                            <button class="btn btn-ludobotics" type="submit">Suscribirse</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+                <p>&copy; 2025 LudoBotics. Todos los derechos reservados.</p>
+                <ul class="list-unstyled d-flex">
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simple JavaScript for demonstration
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Form submission handling
+            const contactForm = document.querySelector('form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
+                    this.reset();
+                });
+            }
+            
+            // Newsletter subscription
+            const newsletterForm = document.querySelector('form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const emailInput = this.querySelector('input[type="text"]');
+                    if (emailInput.value) {
+                        alert('Gracias por suscribirte a nuestro boletín!');
+                        emailInput.value = '';
+                    }
+                });
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('newsletter1').value;
+            
+            Swal.fire({
+            title: '¡Gracias por suscribirte!',
+            text: `Hemos enviado un correo de confirmación a ${email}`,
+            icon: 'success',
+            confirmButtonText: 'Entendido',
+            confirmButtonColor: '#6e48aa',
+            backdrop: `
+                rgba(0,0,0,0.5)
+                center top
+                no-repeat
+            `
+            }).then(() => {
+            // Limpiar el campo después de cerrar el popup
+            document.getElementById('newsletter1').value = '';
+            });
+        });
+    </script>
+</body>
+</html>

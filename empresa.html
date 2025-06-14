@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="auto">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Conoce más sobre LudoBotics - Nuestro equipo, misión y visión en robótica educativa">
+    <title>Nosotros | LudoBotics</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+        .team-member {
+            transition: transform 0.3s;
+        }
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        .section-header {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        .section-header::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #6e48aa;
+        }
+        .btn-ludobotics {
+            background-color: #6e48aa;
+            color: white;
+        }
+        .btn-ludobotics:hover {
+            background-color: #5a23c8;
+            color: white;
+        }
+        [data-bs-theme="dark"] {
+            --bs-body-color: #d1d1d1;
+            --bs-body-color-rgb: 209, 209, 209;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (igual que en landing) -->
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <img src="/assets/logoLudobotics.svg" width="40" height="32" class="me-2" alt="Logo LudoBotics">
+                <span class="fs-4">LudoBotics</span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="landingPage.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active">Nosotros</a></li>
+                <li class="nav-item"><a href="#equipo" class="nav-link">Equipo</a></li>
+                <li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
+                <li class="nav-item"><a href="landingPage.html#paquetes" class="btn btn-ludobotics ms-2">Paquetes</a></li>
+            </ul>
+        </header>
+    </div>
+
+    <!-- Sección Nosotros -->
+    <div class="container px-4 py-5" id="nosotros">
+        <div class="row align-items-center g-5 py-5">
+            <div class="col-lg-6">
+                <h2 class="display-5 fw-bold lh-1 mb-3 section-header">Sobre LudoBotics</h2>
+                <p class="lead">LudoBotics nació en 2023 con la visión de revolucionar la educación en robótica y programación para instituciones educativas en Colombia.</p>
+                
+                <p>Somos un equipo de ingenieros electrónicos apasionados por la educación y la tecnología, comprometidos con hacer accesible el aprendizaje de robótica a través de soluciones innovadoras y económicas.</p>
+                
+                <p>Nuestro enfoque STEAM (Ciencia, Tecnología, Ingeniería, Artes y Matemáticas) integra el aprendizaje práctico con metodologías lúdicas que motivan a los estudiantes.</p>
+                
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
+                    <a href="#equipo" class="btn btn-ludobotics btn-lg px-4 me-md-2">Conoce al equipo</a>
+                </div>
+            </div>
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="/assets/product_images/sesion_arduino.webp" class="d-block mx-lg-auto img-fluid rounded-3" alt="Sesión de robótica educativa" width="700" height="500" loading="lazy">
+            </div>
+        </div>
+    </div>
+
+    <!-- Misión y Visión -->
+    <div class="bg-light">
+        <div class="container px-4 py-5">
+            <div class="row g-4 py-5 row-cols-1 row-cols-lg-2">
+                <div class="col d-flex align-items-start">
+                    <div class="icon-square text-body-emphasis d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                        <i class="bi bi-bullseye" style="color: #6e48aa;"></i>
+                    </div>
+                    <div>
+                        <h3 class="fs-2">Nuestra Misión</h3>
+                        <p>Democratizar el acceso a la educación en robótica y programación mediante soluciones tecnológicas asequibles, materiales didácticos innovadores y metodologías de enseñanza gamificadas que inspiren a las nuevas generaciones de creadores tecnológicos.</p>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <div class="icon-square text-body-emphasis d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                        <i class="bi bi-eye" style="color: #6e48aa;"></i>
+                    </div>
+                    <div>
+                        <h3 class="fs-2">Nuestra Visión</h3>
+                        <p>Para 2030, ser reconocidos como el principal referente en educación STEAM en Colombia, habiendo impactado positivamente en la formación de más de 50,000 estudiantes mediante nuestros programas de robótica educativa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección Equipo -->
+    <div class="container px-4 py-5" id="equipo">
+        <h2 class="display-5 fw-bold text-center mb-5 section-header">Nuestro Equipo</h2>
+        
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 py-5">
+            <!-- Miembro 1 -->
+            <div class="col">
+                <div class="card h-100 team-member">
+                    <img src="https://randomuser.me/api/portraits/women/32.jpg" class="card-img-top" alt="Angee Ocampo">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Angee Ocampo</h5>
+                        <p class="text-muted">Ingeniera Electrónica</p>
+                        <p class="card-text"><strong>Directora de Innovación Educativa</strong><br>Especialista en diseño de currículos STEAM y metodologías gamificadas.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Miembro 2 -->
+            <div class="col">
+                <div class="card h-100 team-member">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" class="card-img-top" alt="Jose Rivera">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Jose Rivera</h5>
+                        <p class="text-muted">Ingeniero Electrónico</p>
+                        <p class="card-text"><strong>Director de Desarrollo Tecnológico</strong><br>Experto en sistemas embebidos y diseño de hardware educativo.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Miembro 3 -->
+            <div class="col">
+                <div class="card h-100 team-member">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" class="card-img-top" alt="Maria Arbeláez">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Maria Arbeláez</h5>
+                        <p class="text-muted">Ingeniera Electrónica</p>
+                        <p class="card-text"><strong>Directora de Operaciones</strong><br>Encargada de la implementación de programas educativos y logística.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Miembro 4 -->
+            <div class="col">
+                <div class="card h-100 team-member">
+                    <img src="https://randomuser.me/api/portraits/men/22.jpg" class="card-img-top" alt="Juan Cabrera">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Juan Cabrera</h5>
+                        <p class="text-muted">Ingeniero Electrónico</p>
+                        <p class="card-text"><strong>Director de Software Educativo</strong><br>Líder del desarrollo de la plataforma de programación por bloques.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección Contacto -->
+    <div class="container px-4 py-5" id="contacto">
+        <div class="row align-items-center g-5 py-5">
+            <div class="col-lg-6">
+                <h2 class="display-5 fw-bold lh-1 mb-3">¿Listo para empezar?</h2>
+                <p class="lead">Contáctanos para más información sobre nuestros productos y servicios, o descarga ahora mismo nuestra plataforma de programación por bloques.</p>
+                
+                <div class="mt-4">
+                    <h4>Información de contacto</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><strong>Email:</strong> info@ludobotics.com</li>
+                        <li class="mb-2"><strong>Teléfono:</strong> +57 123 456 7890</li>
+                        <li class="mb-2"><strong>Ubicación:</strong> Medellín, Colombia</li>
+                    </ul>
+                </div>
+                
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
+                    <a href="#" class="btn btn-ludobotics btn-lg px-4 me-md-2">Descargar Software</a>
+                    <a href="#" class="btn btn-outline-secondary btn-lg px-4">Solicitar Demo</a>
+                </div>
+            </div>
+            <div class="col-10 col-sm-8 col-lg-6">
+                <div class="card p-4">
+                    <h3 class="mb-4">Envíanos un mensaje</h3>
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="institucion" class="form-label">Institución (opcional)</label>
+                            <input type="text" class="form-control" id="institucion">
+                        </div>
+                        <div class="mb-3">
+                            <label for="mensaje" class="form-label">Mensaje</label>
+                            <textarea class="form-control" id="mensaje" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-ludobotics">Enviar mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (igual que en landing) -->
+    <div class="container">
+        <footer class="py-5">
+            <div class="row">
+                <div class="col-6 col-md-2 mb-3">
+                    <h5>Productos</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="landingPage.html#software" class="nav-link p-0 text-body-secondary">Software LUDO</a></li>
+                        <li class="nav-item mb-2"><a href="landingPage.html#kits" class="nav-link p-0 text-body-secondary">Kits educativos</a></li>
+                        <li class="nav-item mb-2"><a href="landingPage.html#sesiones" class="nav-link p-0 text-body-secondary">Sesiones de clase</a></li>
+                        <li class="nav-item mb-2"><a href="landingPage.html#paquetes" class="nav-link p-0 text-body-secondary">Paquetes</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-2 mb-3">
+                    <h5>Empresa</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="empresa.html" class="nav-link p-0 text-body-secondary">Nosotros</a></li>
+                        <li class="nav-item mb-2"><a href="empresa.html#equipo" class="nav-link p-0 text-body-secondary">Equipo</a></li>
+                        <li class="nav-item mb-2"><a href="empresa.html#contacto" class="nav-link p-0 text-body-secondary">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-5 offset-md-1 mb-3">
+                    <form id="newsletterForm">
+                        <h5>Suscríbete a nuestro boletín</h5>
+                        <p>Recibe actualizaciones sobre nuevos productos y ofertas especiales.</p>
+                        <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                            <label for="newsletter1" class="visually-hidden">Email</label>
+                            <input id="newsletter1" type="email" class="form-control" placeholder="Email" required>
+                            <button class="btn btn-ludobotics" type="submit">Suscribirse</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+                <p>&copy; 2025 LudoBotics. Todos los derechos reservados.</p>
+                <ul class="list-unstyled d-flex">
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        // Manejo del formulario de contacto
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: '¡Mensaje enviado!',
+                text: 'Gracias por contactarnos. Te responderemos pronto.',
+                icon: 'success',
+                confirmButtonColor: '#6e48aa'
+            });
+            this.reset();
+        });
+
+        // Manejo del newsletter en footer
+        document.getElementById('footerNewsletter').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('footerEmail').value;
+            Swal.fire({
+                title: '¡Gracias por suscribirte!',
+                text: `Te hemos enviado un correo de confirmación a ${email}`,
+                icon: 'success',
+                confirmButtonColor: '#6e48aa'
+            });
+            document.getElementById('footerEmail').value = '';
+        });
+    </script>
+</body>
+</html>
