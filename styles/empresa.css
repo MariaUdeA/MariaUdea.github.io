@@ -1,0 +1,52 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+.team-member {
+    transition: transform 0.3s;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+}
+
+.section-header {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.section-header::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #6e48aa;
+}
+
+.btn-ludobotics {
+    background-color: #6e48aa;
+    color: white;
+}
+
+.btn-ludobotics:hover {
+    background-color: #5a23c8;
+    color: white;
+}
+
+[data-bs-theme="dark"] {
+    --bs-body-color: #d1d1d1;
+    --bs-body-color-rgb: 209, 209, 209;
+}

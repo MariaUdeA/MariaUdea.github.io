@@ -6,137 +6,13 @@
     <meta name="description" content="LudoBotics - Robótica educativa para escuelas con enfoque STEAM y aprendizaje lúdico">
     <meta name="author" content="LudoBotics Team">
     <title>LudoBotics - Robótica Educativa STEAM</title>
-    <link rel="canonical" href="https://www.ludobotics.com">
+    <link rel="icon" href="./assets/product_images/Logo_alone.png" type="image/x-icon">
+    <!--<link rel="canonical" href="https://www.ludobotics.com">-->
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
     <script src="./assets/js/color-modes.js"></script>
     <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-        .b-example-divider {
-            width: 100%;
-            height: 3rem;
-            background-color: rgba(0, 0, 0, .1);
-            border: solid rgba(0, 0, 0, .15);
-            border-width: 1px 0;
-            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-        }
-        .b-example-vr {
-            flex-shrink: 0;
-            width: 1.5rem;
-            height: 100vh;
-        }
-        .bi {
-            vertical-align: -.125em;
-            fill: currentColor;
-        }
-        .nav-scroller {
-            position: relative;
-            z-index: 2;
-            height: 2.75rem;
-            overflow-y: hidden;
-        }
-        .nav-scroller .nav {
-            display: flex;
-            flex-wrap: nowrap;
-            padding-bottom: 1rem;
-            margin-top: -1px;
-            overflow-x: auto;
-            text-align: center;
-            white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
-        }
-        .btn-bd-primary {
-            --bd-violet-bg: #712cf9;
-            --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-            --bs-btn-font-weight: 600;
-            --bs-btn-color: var(--bs-white);
-            --bs-btn-bg: var(--bd-violet-bg);
-            --bs-btn-border-color: var(--bd-violet-bg);
-            --bs-btn-hover-color: var(--bs-white);
-            --bs-btn-hover-bg: #6528e0;
-            --bs-btn-hover-border-color: #6528e0;
-            --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-            --bs-btn-active-color: var(--bs-btn-hover-color);
-            --bs-btn-active-bg: #5a23c8;
-            --bs-btn-active-border-color: #5a23c8;
-        }
-        .bd-mode-toggle .btn-bd-primary {
-            padding: 0.25rem 0.5rem;
-            font-size: 0.75rem;
-        }
-        [data-bs-theme="dark"] {
-            --bs-body-color: #d1d1d1; 
-            --bs-body-color-rgb: 209, 209, 209;
-            --bs-secondary-color: rgba(209, 209, 209, 0.85);
-            --bs-tertiary-color: rgba(209, 209, 209, 0.65);
-        }
-        [data-bs-theme="dark"] .card,
-        [data-bs-theme="dark"] .table,
-        [data-bs-theme="dark"] .text-body-secondary {
-            --bs-card-color: #d1d1d1;
-            --bs-table-color: #d1d1d1;
-            --bs-secondary-color: #d1d1d1;
-            color: #d1d1d1 !important;
-        }
-        [data-bs-theme="dark"] .lead,
-        [data-bs-theme="dark"] .text-body-secondary,
-        [data-bs-theme="dark"] .table {
-            opacity: 0.9; /* Texto más sólido */
-        }
-        .bd-mode-toggle .dropdown-menu .active .bi {
-            display: block !important;
-        }
-        .hero-section {
-            background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
-            color: white;
-            padding: 5rem 0;
-            margin-bottom: 3rem;
-            border-radius: 0.5rem;
-        }
-        .feature-icon {
-            width: 4rem;
-            height: 4rem;
-            border-radius: 0.75rem;
-            background-color: #6e48aa;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-        }
-        .steam-badge {
-            background-color: #6e48aa;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-        .testimonial-card {
-            border-left: 4px solid #6e48aa;
-        }
-        .btn-ludobotics {
-            background-color: #6e48aa;
-            color: white;
-        }
-        .btn-ludobotics:hover {
-            background-color: #5a23c8;
-            color: white;
-        }
-    </style>
+    <link href="./styles/index.css" rel="stylesheet">
+
 </head>
 <body>
     <!-- Theme toggle (same as reference) -->
@@ -155,6 +31,7 @@
             <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
         </symbol>
     </svg>
+    <!-- this is still the light on off toggle-->
     <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
         <button class="btn btn-bd-primary py-1 px-2 dropdown-toggle d-flex align-items-center" 
                 id="bd-theme" 
@@ -208,7 +85,7 @@
     <div class="container">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                <img src="/assets/logoLudobotics.svg" width="40" height="32" class="me-2" alt="Logo LudoBotics">
+                <img src="/assets/product_images/Logo_full.png" width="62.5" height="50" class="me-2" alt="Logo LudoBotics">
                 <span class="fs-4">LudoBotics</span>
             </a>
 
@@ -323,7 +200,7 @@
     </div>
 
     <!-- Kits Section -->
-    <div class="bg-light">
+    <div class="kits-section">
         <div class="container px-4 py-5" id="kits">
             <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
                 <div class="col-lg-6">
@@ -381,14 +258,14 @@
     </div>
 
     <!-- Enfoque STEAM -->
-    <div class="bg-light">
+    <div class="enfoque-steam">
         <div class="container px-4 py-5">
             <h2 class="display-5 fw-bold text-center mb-5">Enfoque STEAM integrado</h2>
             
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 py-5">
                 <div class="col d-flex align-items-start">
                     <div class="me-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#6e48aa" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#0d63fd" viewBox="0 0 16 16">
                             <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
                         </svg>
                     </div>
@@ -400,7 +277,7 @@
                 
                 <div class="col d-flex align-items-start">
                     <div class="me-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#6e48aa" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#0d63fd" viewBox="0 0 16 16">
                             <path d="M4.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zM3 4.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm2 7a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-2.5.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
                             <path d="M2 2a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h1v2H2a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2h-1V7h1a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm13 2v1a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zm0 7v1a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zm-3-4v2H4V7h8z"/>
                         </svg>
@@ -413,7 +290,7 @@
                 
                 <div class="col d-flex align-items-start">
                     <div class="me-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#6e48aa" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#0d63fd" viewBox="0 0 16 16">
                             <path d="M4 0h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H4z"/>
                             <path d="M6.5 4a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm-2 0a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.5-.5h-1zm4 0a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.5-.5h-1z"/>
                         </svg>
@@ -426,7 +303,7 @@
                 
                 <div class="col d-flex align-items-start">
                     <div class="me-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#6e48aa" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#0d63fd" viewBox="0 0 16 16">
                             <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16ZM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5ZM4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683ZM10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8Z"/>
                         </svg>
                     </div>
@@ -565,7 +442,7 @@
     </div>
 
     <!-- Testimonials -->
-    <div class="bg-light">
+    <div class="testimonials">
         <div class="container px-4 py-5">
             <h2 class="display-5 fw-bold text-center mb-5">Lo que dicen nuestros clientes</h2>
             
