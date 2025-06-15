@@ -242,6 +242,27 @@ body{
   border-color: var(--dark-color);
   color: var(--dark-color);
 }
+/*-----table------*/
+.table-responsive{
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.table-responsive>table{
+  margin-bottom: 0;
+  background-color: #1A2B34 !important;
+}
+[data-bs-theme="light"] .table-responsive>table {
+  --bs-table-bg: #1A2B34;
+  background-color: #1A2B34 !important;
+}
+
+.table-header{
+  background-color: #1A2B34 !important;
+  border-bottom: 2px solid #a7e1f5;
+  font-size: 1.5rem;
+}
+
 /*------testimonial---------*/
 .testimonial-card {
   border-radius: 16px;
@@ -362,6 +383,16 @@ body{
 [data-bs-theme="dark"] .faq-item.active {
   box-shadow: 0 5px 15px rgba(110, 72, 170, 0.3);
 }
+
+/*----contacto----*/
+.contacto-box{
+  background-color: var(--secondary-color);/* #B2DFEC;*/
+}
+.contacto-box>div{
+  background-color: var(--secondary-color);/* #B2DFEC;*/
+  border: none;
+}
+
 
 /*----footer-----*/
 
