@@ -82,23 +82,37 @@
         </ul>
     </div>
 
-    <!-- Navigation (igual que en landing) -->
-    <div class="container">
-        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                <img src="/assets/logoLudobotics.svg" width="40" height="32" class="me-2" alt="Logo LudoBotics">
-                <span class="fs-4">LudoBotics</span>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #deedf8;">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <img src="/assets/product_images/Logo_full.png" width="126.1" height="100" class="me-2" alt="Logo LudoBotics">
+                <span class="fs-4 fw-bold" style="color: #040835;">LudoBotics</span>
             </a>
-
-            <ul class="nav nav-pills">
-                <li class="nav-item"><a href="landingPage.html" class="nav-link">Inicio</a></li>
-                <li class="nav-item"><a href="#" class="nav-link active">Nosotros</a></li>
-                <li class="nav-item"><a href="#equipo" class="nav-link">Equipo</a></li>
-                <li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
-                <li class="nav-item"><a href="landingPage.html#paquetes" class="btn btn-ludobotics ms-2">Paquetes</a></li>
-            </ul>
-        </header>
-    </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+                <ul class="navbar-nav mb-2 mb-lg-2 align-items-lg-center"></ul>
+                    <li class="nav-item ms-3">
+                      <a class="nav-link" href="index.html" style="font-weight: bold;">Inicio</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link" href="#" style="color: #040835; font-weight: bold;">Nosotros</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link" href="#equipo" style="font-weight: bold;">Equipo</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link" href="#contacto" style="font-weight: bold;">Contacto</a>
+                    </li>
+                    <li class="nav-item ms-lg-4">
+                        <a href="index.html#paquetes" class="btn btn-ludobotics px-3 fw-bold text-uppercase">Paquetes</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <!-- Sección Nosotros -->
     <div class="container px-4 py-5" id="nosotros">
@@ -122,12 +136,12 @@
     </div>
 
     <!-- Misión y Visión -->
-    <div class="bg-light">
+    <div class="mision">
         <div class="container px-4 py-5">
             <div class="row g-4 py-5 row-cols-1 row-cols-lg-2">
                 <div class="col d-flex align-items-start">
                     <div class="icon-square text-body-emphasis d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-                        <i class="bi bi-bullseye" style="color: #6e48aa;"></i>
+                        <i class="bi bi-bullseye" style="color: #67c6de;"></i>
                     </div>
                     <div>
                         <h3 class="fs-2">Nuestra Misión</h3>
@@ -136,7 +150,7 @@
                 </div>
                 <div class="col d-flex align-items-start">
                     <div class="icon-square text-body-emphasis d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-                        <i class="bi bi-eye" style="color: #6e48aa;"></i>
+                        <i class="bi bi-eye" style="color: #67c6de;"></i>
                     </div>
                     <div>
                         <h3 class="fs-2">Nuestra Visión</h3>
@@ -250,17 +264,17 @@
         </div>
     </div>
 
-    <!-- Footer (igual que en landing) -->
+    <!-- Footer -->
     <div class="container">
         <footer class="py-5">
             <div class="row">
                 <div class="col-6 col-md-2 mb-3">
                     <h5>Productos</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="landingPage.html#software" class="nav-link p-0 text-body-secondary">Software LUDO</a></li>
-                        <li class="nav-item mb-2"><a href="landingPage.html#kits" class="nav-link p-0 text-body-secondary">Kits educativos</a></li>
-                        <li class="nav-item mb-2"><a href="landingPage.html#sesiones" class="nav-link p-0 text-body-secondary">Sesiones de clase</a></li>
-                        <li class="nav-item mb-2"><a href="landingPage.html#paquetes" class="nav-link p-0 text-body-secondary">Paquetes</a></li>
+                        <li class="nav-item mb-2"><a href="#software" class="nav-link p-0 text-body-secondary">Software LUDO</a></li>
+                        <li class="nav-item mb-2"><a href="#kits" class="nav-link p-0 text-body-secondary">Kits educativos</a></li>
+                        <li class="nav-item mb-2"><a href="#sesiones" class="nav-link p-0 text-body-secondary">Sesiones de clase</a></li>
+                        <li class="nav-item mb-2"><a href="#paquetes" class="nav-link p-0 text-body-secondary">Paquetes</a></li>
                     </ul>
                 </div>
 
